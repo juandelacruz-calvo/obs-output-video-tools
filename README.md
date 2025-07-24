@@ -214,7 +214,7 @@ sudo apt update && sudo apt install ffmpeg
 
 ## 📄 License
 
-This script is provided as-is for educational and personal use. Feel free to modify and distribute according to your needs.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
