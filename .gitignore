@@ -1,0 +1,94 @@
+# Video and Audio Assets Created by merge_mp4_files.sh
+# ================================================
+
+# Generated video files
+*_merged.mp4
+*_cut.mp4
+*_normalized.mp4
+
+# Generated audio files  
+*_audio.mp3
+
+# Common video formats (input files)
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wmv
+*.flv
+*.webm
+
+# Common audio formats
+*.mp3
+*.wav
+*.aac
+*.flac
+*.ogg
+*.m4a
+
+# FFmpeg temporary files
+*.tmp
+*.temp
+ffmpeg_filelist_*.txt
+
+# Development and IDE files
+# ========================
+
+# History directory
+.history/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+# ==================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+
+# Log files
+# =========
+*.log
+*.out
+error.log
+debug.log
+
+# Backup files
+# ============
+*.bak
+*.backup
+*.old
+*.orig
+
+# Compressed files
+# ===============
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Don't ignore the script itself and documentation
+# ==============================================
+!merge_mp4_files.sh
+!README.md
+!.gitignore 
