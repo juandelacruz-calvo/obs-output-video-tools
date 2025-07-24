@@ -2,6 +2,8 @@
 
 A comprehensive bash script that merges multiple MP4 files, provides optional video cutting with timestamps, automatically normalizes audio to -0.5dB peak, and extracts high-quality MP3 audio files.
 
+Intended to be used with the output fragmented videos from OBS
+
 ## 🎬 Features
 
 - **Smart MP4 Merging** - Combines multiple MP4 files while preserving original format and quality
