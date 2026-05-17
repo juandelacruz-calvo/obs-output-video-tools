@@ -219,14 +219,17 @@ create_file_list() {
     
     # Find all MP4 files and add them to the list
     while IFS= read -r -d '' file; do
-        # Get absolute path to avoid issues with relative paths
-        abs_path=$(realpath "$file")
-        echo "file '$abs_path'" >> "$file_list"
-        print_info "Added: $(basename "$file")"
+        # Use filename only to avoid path issues between Unix/Windows
+        # The concat demuxer handles relative paths relative to the list file
+        filename=$(basename "$file")
+        # Escape single quotes for ffmpeg concat format
+        escaped_filename=$(echo "$filename" | sed "s/'/'\\\\''/g")
+        echo "file '$escaped_filename'" >> "$file_list"
+        print_info "Added: $filename"
         
         # Store first file for format analysis
         if [ $count -eq 0 ]; then
-            first_file="$abs_path"
+            first_file="$file"
         fi
         
         ((count++))
@@ -583,8 +586,9 @@ main() {
     # Convert to absolute path
     input_dir=$(realpath "$input_dir")
     
-    # Create temporary file list
-    file_list=$(mktemp /tmp/ffmpeg_filelist_XXXXXX.txt)
+    # Create temporary file list in the input directory to avoid path issues
+    # and allow using relative paths in the concat list
+    file_list=$(mktemp "$input_dir/ffmpeg_filelist_XXXXXX.txt")
     
     # Ensure cleanup on exit
     trap "rm -f '$file_list'" EXIT
@@ -662,4 +666,4 @@ main() {
 }
 
 # Run main function with all arguments
-main "$@" 
+main "$@"
